@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>دوز</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="favicon" href="favicon.ico">
+    <link rel="script" href="javascript.js">
+
+
+    <!-- script -->
+    <script>
+        cnt = 0
+
+
+        function game(click) {
+
+            var circle = document.getElementById('circle').src
+            var zarb = document.getElementById('zarb').src
+            if (click.src != circle && click.src != zarb) {
+                ++cnt
+                if (cnt % 2 == 1) {
+                    click.src = 'icon/circle.svg'
+                    document.getElementById('turn').innerHTML = "* نوبت ضرب "
+                } else {
+                    click.src = 'icon/zarb.svg'
+                    document.getElementById('turn').innerHTML = "● نوبت دایره"
+                }
+                var td1 = document.getElementById('1').src
+                var td2 = document.getElementById('2').src
+                var td3 = document.getElementById('3').src
+                var td4 = document.getElementById('4').src
+                var td5 = document.getElementById('5').src
+                var td6 = document.getElementById('6').src
+                var td7 = document.getElementById('7').src
+                var td8 = document.getElementById('8').src
+                var td9 = document.getElementById('9').src
+                var td = [td1, td2, td3, td4, td5, td6, td7, td8, td9]
+                    // alert(td[1])
+                if (td[0] == circle && td[1] == circle && td[2] == circle || td[3] == circle && td[4] == circle && td[5] == circle || td[6] == circle && td[7] == circle && td[8] == circle || td[0] == circle && td[3] == circle && td[6] == circle || td[1] == circle && td[4] == circle && td[7] == circle || td[2] == circle && td[5] == circle && td[8] == circle || td[0] == circle && td[4] == circle && td[8] == circle || td[2] == circle && td[4] == circle && td[6] == circle) {
+                    alert("دایره برنده شد !!!!!!!!!!!")
+                    document.getElementById('turn').innerHTML = "بازی تمام شد برای شروع مجدد روی دکمه بالا کلیک کنید"
+
+                }
+
+                if (td[0] == zarb && td[1] == zarb && td[2] == zarb || td[3] == zarb && td[4] == zarb && td[5] == zarb || td[6] == zarb && td[7] == zarb && td[8] == zarb || td[0] == zarb && td[3] == zarb && td[6] == zarb || td[1] == zarb && td[4] == zarb && td[7] == zarb || td[2] == zarb && td[5] == zarb && td[8] == zarb || td[0] == zarb && td[4] == zarb && td[8] == zarb || td[2] == zarb && td[4] == zarb && td[6] == zarb) {
+                    alert("ضرب برنده شد !!!!!!!!!!!")
+                    document.getElementById('turn').innerHTML = "بازی تمام شد برای شروع مجدد روی دکمه بالا کلیک کنید"
+                }
+
+            }
+        }
+
+
+        function clear_game() {
+            var defaultpic = document.getElementById('default').src
+            document.getElementById('1').src = defaultpic
+            document.getElementById('2').src = defaultpic
+            document.getElementById('3').src = defaultpic
+            document.getElementById('4').src = defaultpic
+            document.getElementById('5').src = defaultpic
+            document.getElementById('6').src = defaultpic
+            document.getElementById('7').src = defaultpic
+            document.getElementById('8').src = defaultpic
+            document.getElementById('9').src = defaultpic
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <section>
+        <h1 class="game-title">دوووووووز</h1>
+        <div class="game-container">
+            <table>
+                <tr id="tr">
+                    <td><img src="icon/blank.png" alt="" id="1" onclick="game(this)"></td>
+                    <td><img src="icon/blank.png" alt="" id="2" onclick="game(this)"></td>
+                    <td><img src="icon/blank.png" alt="" id="3" onclick="game(this)"></td>
+                </tr>
+                <tr id="tr">
+                    <td><img src="icon/blank.png" alt="" id="4" onclick="game(this)"></td>
+                    <td><img src="icon/blank.png" alt="" id="5" onclick="game(this)"></td>
+                    <td><img src="icon/blank.png" alt="" id="6" onclick="game(this)"></td>
+                </tr>
+                <tr id="tr">
+                    <td><img src="icon/blank.png" alt="" id="7" onclick="game(this)"></td>
+                    <td><img src="icon/blank.png" alt="" id="8" onclick="game(this)"></td>
+                    <td><img src="icon/blank.png" alt="" id="9" onclick="game(this)"></td>
+                </tr>
+            </table>
+            <div style="display: none;"><img src="icon/circle.svg" alt="" id="circle"></div>
+            <div style="display: none;"><img src="icon/zarb.svg" alt="" id="zarb"></div>
+            <div style="display: none;"><img src="icon/blank - Copy.png" alt="" id="default"></div>
+        </div>
+        <h2 class="game--status"></h2>
+        <button style="font-size: 20px;" onclick="clear_game()"><b>بازی مجدد</b></button>
+        <div style="margin-top: 20px; " id="turn"><b>شروع : دایره انتخاب کن</b> </div>
+    </section>
+
+</body>
+
+</html>
